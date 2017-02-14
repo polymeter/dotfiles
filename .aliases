@@ -1,0 +1,32 @@
+# Global alias definitions
+# This should be sourced by all bourne-compatible shells.
+
+# OS- and distro-independent aliases
+alias grep='grep --color=auto'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias rmdir='rmdir -v'
+alias mkdir='mkdir -p'
+alias sgit='git --git-dir=$HOME/.dotfiles-shell.git/ --work-tree=$HOME'
+alias ggit='git --git-dir=$HOME/.dotfiles-gui.git/ --work-tree=$HOME'
+
+# OS-Specifics
+case $(uname -s) in
+    'Linux')
+        alias ls='ls --color=auto'
+        alias chmod='chmod -c'
+        alias chown='chown -c'
+
+        if [ -f /etc/arch-release ]; then
+            alias pacman='pacman --color=auto'
+        fi
+    ;;
+    'FreeBSD')
+        alias ls='ls -G'
+        alias chmod='chmod -vv'
+        alias chown='chown -vv'
+    ;;
+esac
