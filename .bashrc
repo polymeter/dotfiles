@@ -43,5 +43,6 @@ elif [ $(uname -s) = "FreeBSD" ]; then
     export LSCOLORS=ExGxFxdxCxDxDxxbxdAeAe
 fi
 
-# Source custom aliases (same for all bourne-compatible shells)
+# Source custom aliases and functions (same for all bourne-compatible shells)
 [ -f ~/.aliases ] && . ~/.aliases
+[ -f ~/.functions ] && . ~/.functions
