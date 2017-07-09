@@ -26,6 +26,9 @@ case $(uname -s) in
     ;;
 esac
 
+# Trigger terminal bell, e.g. for highlighting when long operations finish
+alias ding='tput bel'
+
 # Dotfiles management
 alias sgit='git --git-dir=$HOME/.dotfiles-shell.git/ --work-tree=$HOME'
 alias ggit='git --git-dir=$HOME/.dotfiles-gui.git/ --work-tree=$HOME'
