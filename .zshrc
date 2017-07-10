@@ -51,7 +51,7 @@ compinit
 zstyle ':completion:*' hosts off
 
 # Set LS_COLORS
-if [ $(uname -s) = "Linux" ]; then
+if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
     # On Linux, use the dircolors tool
     eval $(dircolors ~/.dircolors)
 elif [ $(uname -s) = "FreeBSD" ]; then

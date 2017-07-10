@@ -11,20 +11,17 @@ alias rm='rm -i'
 alias rmdir='rmdir -v'
 alias mkdir='mkdir -p'
 
-case $(uname -s) in
-    'Linux')
-        # GNU variant
-        alias ls='ls --color=auto'
-        alias chmod='chmod -c'
-        alias chown='chown -c'
-    ;;
-    'FreeBSD')
-        # Unix / BSD variant
-        alias ls='ls -G'
-        alias chmod='chmod -vv'
-        alias chown='chown -vv'
-    ;;
-esac
+if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
+    # GNU variant
+    alias ls='ls --color=auto'
+    alias chmod='chmod -c'
+    alias chown='chown -c'
+elif [ $(uname -s) = "FreeBSD" ]; then
+    # Unix / BSD variant
+    alias ls='ls -G'
+    alias chmod='chmod -vv'
+    alias chown='chown -vv'
+fi
 
 # Trigger terminal bell, e.g. for highlighting when long operations finish
 alias ding='tput bel'
