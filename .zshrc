@@ -35,6 +35,9 @@ setopt share_history
 bindkey -v
 KEYTIMEOUT=1 # only 0.1 s to switch to 'normal mode'
 
+bindkey '^?' backward-delete-char # Allow backspacing over insert point
+bindkey "^R" history-incremental-search-backward
+
 bindkey -a "K" history-beginning-search-backward
 bindkey -a "J" history-beginning-search-forward
 
