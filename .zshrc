@@ -48,6 +48,19 @@ fi
 bindkey "${key[Up]}" history-beginning-search-backward
 bindkey "${key[Down]}" history-beginning-search-forward
 
+# Support additional text objects
+autoload -U select-bracketed select-quoted
+zle -N select-bracketed
+zle -N select-quoted
+for m in viopp visual; do
+    for c in {a,i}{\',\",\`}; do
+        bindkey -M $m $c select-quoted
+    done
+    for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+        bindkey -M $m $c select-bracketed
+    done
+done
+
 # Misc options
 setopt autocd
 setopt extendedglob
