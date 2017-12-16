@@ -33,6 +33,11 @@ setopt share_history
 
 # Keybindings
 bindkey -v
+KEYTIMEOUT=1 # only 0.1 s to switch to 'normal mode'
+
+bindkey -a "K" history-beginning-search-backward
+bindkey -a "J" history-beginning-search-forward
+
 # To avoid using raw escape sequences, some zsh versions (e.g. on Debian)
 # determine the correct value from terminfo and populate key[...].
 # These are used if available, otherwise falling back to the escape sequence.
