@@ -1,7 +1,7 @@
 # Add custom scripts directory if present
 if [[ -d ~/bin ]]; then
     typeset -U path
-    path=(~/bin $path)
+    path+=~/bin
 fi
 
 # Start X if logging in locally to tty1
