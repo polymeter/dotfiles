@@ -3,16 +3,14 @@ autoload -U colors
 colors
 
 # Prompt configuration
-# This uses 3 variants:
-# a) Local user (no ssh): Green username (without hostname)
-# b) Remote user (over ssh): Yellow username@hostname
-# c) root (same for local and remote): Red root@hostname
 autoload -U promptinit
 promptinit
 
 if [ -n "$SSH_CLIENT" ]; then
+    # When used over SSH, always display user and hostname
     p_user="%(#.%F{red}.%F{yellow})%B%n@%m%b%f "
 else
+    # When used locally, only display user when root
     p_user="%(#.%F{red}%B%n%b%f .)"
 fi
 PROMPT="${p_user}%F{blue}%~%f${prompt_newline}%(?.%F{green}.%F{red})%#%f "
