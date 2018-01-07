@@ -10,13 +10,12 @@ colors
 autoload -U promptinit
 promptinit
 
-if [ -z "$SSH_CLIENT" ]; then
-    PROMPT="%{%(#.$fg[red]%B%n@%m.$fg[green]%B%n)%}%b %{$fg[blue]%}%~%{$reset_color%}
-%# "
+if [ -n "$SSH_CLIENT" ]; then
+    p_user="%(#.%F{red}.%F{yellow})%B%n@%m%b%f "
 else
-    PROMPT="%{%(#.$fg[red].$fg[yellow])%}%B%n@%m%b %{$fg[blue]%}%~%{$reset_color%}
-%# "
+    p_user="%(#.%F{red}.%F{green})%B%n%b%f "
 fi
+PROMPT="${p_user}%F{blue}%~%f${prompt_newline}%# "
 RPROMPT="%(?..%{$fg[red]%}%B!%b%{$reset_color%})"
 
 # History
