@@ -15,8 +15,8 @@ if [ -n "$SSH_CLIENT" ]; then
 else
     p_user="%(#.%F{red}%B%n%b%f .)"
 fi
-PROMPT="${p_user}%F{blue}%~%f${prompt_newline}%# "
-RPROMPT="%(?..%{$fg[red]%}%B!%b%{$reset_color%})"
+PROMPT="${p_user}%F{blue}%~%f${prompt_newline}%(?.%F{green}.%F{red})%#%f "
+RPROMPT=""
 
 # History
 HISTFILE=~/.zsh_history
