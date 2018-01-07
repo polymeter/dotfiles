@@ -25,8 +25,11 @@ else
     # When used locally, only display user when root
     p_user="%(#.%F{red}%B%n%b%f .)"
 fi
-PROMPT='${p_user}%F{blue}%~%f%F{10}${vcs_info_msg_0_}%f${prompt_newline}%(?.%F{green}.%F{red})%#%f '
+PROMPT='${p_user}%F{blue}%~%f%F{10}${vcs_info_msg_0_}%f %F{cyan}${VIRTUAL_ENV:t}%f${prompt_newline}%(?.%F{green}.%F{red})%#%f '
 RPROMPT=""
+
+# Disable automatic prompt modification, we handle that ourselves.
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # History
 HISTFILE=~/.zsh_history
