@@ -2,9 +2,19 @@
 autoload -U colors
 colors
 
+# Support for git (and hg, svn)
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git hg svn
+zstyle ':vcs_info:git:*' actionformats ' %b[%a]'
+zstyle ':vcs_info:git:*' formats ' %b'
+zstyle ':vcs_info:(hg|svn):*' actionformats ' %s:%b[%a]'
+zstyle ':vcs_info:(hg|svn):*' formats ' %s:%b'
+precmd () { vcs_info }
+
 # Prompt configuration
 autoload -U promptinit
 promptinit
+setopt prompt_subst
 
 if [ -n "$SSH_CLIENT" ]; then
     # When used over SSH, always display user and hostname
@@ -13,7 +23,7 @@ else
     # When used locally, only display user when root
     p_user="%(#.%F{red}%B%n%b%f .)"
 fi
-PROMPT="${p_user}%F{blue}%~%f${prompt_newline}%(?.%F{green}.%F{red})%#%f "
+PROMPT='${p_user}%F{blue}%~%f%F{10}${vcs_info_msg_0_}%f${prompt_newline}%(?.%F{green}.%F{red})%#%f '
 RPROMPT=""
 
 # History
