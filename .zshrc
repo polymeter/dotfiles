@@ -9,7 +9,9 @@ zstyle ':vcs_info:git:*' actionformats ' %b[%a]'
 zstyle ':vcs_info:git:*' formats ' %b'
 zstyle ':vcs_info:(hg|svn):*' actionformats ' %s:%b[%a]'
 zstyle ':vcs_info:(hg|svn):*' formats ' %s:%b'
-precmd () { vcs_info }
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd vcs_info
 
 # Prompt configuration
 autoload -U promptinit
