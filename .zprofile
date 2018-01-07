@@ -1,5 +1,5 @@
 # Add custom scripts directory if present
-if [[ -d ~/bin ]]; then
+if [ -d ~/bin ]; then
     typeset -U path
     path+=~/bin
 fi
