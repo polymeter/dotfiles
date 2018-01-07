@@ -37,8 +37,8 @@ if [ -n "$SSH_CLIENT" ]; then
     # When used over SSH, always display user and hostname
     p_user="%(#.%F{red}.%F{yellow})%B%n@%m%b%f "
 else
-    # When used locally, only display user when root
-    p_user="%(#.%F{red}%B%n%b%f .)"
+    # When used locally, only display user and hostname when root
+    p_user="%(#.%F{red}%B%n@%m%b%f .)"
 fi
 PROMPT='${p_user}%F{blue}%~%f%F{10}${vcs_info_msg_0_}%f %F{cyan}${VIRTUAL_ENV:t}%f${prompt_newline}%(?.%F{green}.%F{red})%#%f '
 RPROMPT=""
