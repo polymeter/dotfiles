@@ -13,7 +13,7 @@ promptinit
 if [ -n "$SSH_CLIENT" ]; then
     p_user="%(#.%F{red}.%F{yellow})%B%n@%m%b%f "
 else
-    p_user="%(#.%F{red}.%F{green})%B%n%b%f "
+    p_user="%(#.%F{red}%B%n%b%f .)"
 fi
 PROMPT="${p_user}%F{blue}%~%f${prompt_newline}%# "
 RPROMPT="%(?..%{$fg[red]%}%B!%b%{$reset_color%})"
