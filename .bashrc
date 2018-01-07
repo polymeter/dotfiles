@@ -16,13 +16,13 @@ fi
 
 # Prompt configuration
 # This uses 3 variants:
-# a) Local user (no ssh): Green username (without hostname)
+# a) Local user (no ssh): No username
 # b) Remote user (over ssh): Yellow username@hostname
 # c) root (same for local and remote): Red root@hostname
 if [ $(whoami) == "root" ]; then
     PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;m\]\n\\$ "
 elif [ -z "$SSH_CLIENT" ]; then
-    PS1="\[\033[1;32m\]\u \[\033[0;34m\]\w\[\033[0;m\]\n\\$ "
+    PS1="\[\033[0;34m\]\w\[\033[0;m\]\n\\$ "
 else
     PS1="\[\033[1;33m\]\u@\h \[\033[0;34m\]\w\[\033[0;m\]\n\\$ "
 fi
