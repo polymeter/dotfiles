@@ -1,5 +1,5 @@
 # Color support
-autoload -U colors
+autoload -Uz colors
 colors
 
 # Support for git (and hg, svn)
@@ -14,7 +14,7 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd vcs_info
 
 # Prompt configuration
-autoload -U promptinit
+autoload -Uz promptinit
 promptinit
 setopt prompt_subst
 
@@ -64,7 +64,7 @@ bindkey "${key[Up]}" history-beginning-search-backward
 bindkey "${key[Down]}" history-beginning-search-forward
 
 # Support additional text objects
-autoload -U select-bracketed select-quoted
+autoload -Uz select-bracketed select-quoted
 zle -N select-bracketed
 zle -N select-quoted
 for m in viopp visual; do
@@ -84,7 +84,7 @@ unsetopt beep
 unsetopt notify
 
 # Completion
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # Disable completion of hostnames from /etc/hosts
