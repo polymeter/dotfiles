@@ -5,10 +5,25 @@ colors
 # Support for git (and hg, svn)
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg svn
-zstyle ':vcs_info:git:*' actionformats ' %b[%a]'
-zstyle ':vcs_info:git:*' formats ' %b'
+zstyle ':vcs_info:git:*' actionformats ' %b[%a] %m'
+zstyle ':vcs_info:git:*' formats ' %b %m'
 zstyle ':vcs_info:(hg|svn):*' actionformats ' %s:%b[%a]'
 zstyle ':vcs_info:(hg|svn):*' formats ' %s:%b'
+
+# Show commits ahead/behind (credit: https://github.com/zsh-users/zsh)
+zstyle ':vcs_info:git*+set-message:*' hooks git-st
+function +vi-git-st() {
+    local ahead behind
+    local -a gitstatus
+
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+    (( $ahead )) && gitstatus+=( "+${ahead}" )
+
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+    (( $behind )) && gitstatus+=( "-${behind}" )
+
+    hook_com[misc]+=${(j:/:)gitstatus}
+}
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd vcs_info
