@@ -45,3 +45,11 @@
 *color13:                 S_violet
 *color14:                 S_base1
 *color15:                 S_base3
+
+! Font rendering
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
