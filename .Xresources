@@ -53,3 +53,13 @@ Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+! urxvt settings
+URxvt.buffered: true
+URxvt.font: xft:Inconsolata-10
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+URxvt.pointerBlank: true
+URxvt.scrollBar: false
+URxvt.urgentOnBell: true
+URxvt.intensityStyles: false
