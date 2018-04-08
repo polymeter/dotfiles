@@ -11,6 +11,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias rmdir='rmdir -v'
 alias mkdir='mkdir -p'
+alias dus='du -chs * | sort -h'
 
 if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
     # GNU variant
