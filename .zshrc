@@ -117,6 +117,20 @@ elif [ $(uname -s) = "FreeBSD" ]; then
     export LSCOLORS=ExGxFxdxCxDxDxxbxdAeAe
 fi
 
+# Enable fzf if available
+# Try all known possible install locations (packaging-dependent).
+fzf_paths=(
+/usr/share/fzf # Arch linux package
+/usr/local/share/examples/fzf/shell # FreeBSD pkg
+)
+for cand_path in $fzf_paths; do
+    if [ -f "$cand_path/key-bindings.zsh" ]; then
+        source "$cand_path/key-bindings.zsh"
+        break
+    fi
+done
+unset fzf_paths cand_path
+
 # Source custom aliases and functions (same for all bourne-compatible shells)
 [ -f ~/.aliases ] && . ~/.aliases
 [ -f ~/.functions ] && . ~/.functions
