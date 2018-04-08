@@ -1,4 +1,0 @@
-# Create and enter a new directory in one go
-function mkcd() {
-    mkdir -p "$1" && cd "$1"
-}

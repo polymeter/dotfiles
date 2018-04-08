@@ -1,5 +1,5 @@
-# Global alias definitions
-# This should be sourced by all bourne-compatible shells.
+# Common shell configuration (applying to both zsh and bash)
+# Aliases {{{
 
 # Standard system tools
 alias grep='grep --color=auto'
@@ -45,3 +45,25 @@ if [ -f /etc/arch-release ]; then
     # pacman is only available on Arch Linux
     alias pacman='pacman --color=auto'
 fi
+
+# }}}
+# Custom functions {{{
+
+# Create and enter a new directory in one go
+function mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# }}}
+# Misc {{{
+
+# Set LS_COLORS
+if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
+    # On Linux, use the dircolors tool
+    eval $(dircolors ~/.dircolors)
+elif [ $(uname -s) = "FreeBSD" ]; then
+    # On FreeBSD, a different format is used
+    export LSCOLORS=ExGxFxdxCxDxDxxbxdAeAe
+fi
+
+# }}}

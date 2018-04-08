@@ -34,15 +34,5 @@ export HISTCONTROL=ignoreboth
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-# Set LS_COLORS
-if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
-    # On Linux, use the dircolors tool
-    eval $(dircolors ~/.dircolors)
-elif [ $(uname -s) = "FreeBSD" ]; then
-    # On FreeBSD, a different format is used
-    export LSCOLORS=ExGxFxdxCxDxDxxbxdAeAe
-fi
-
-# Source custom aliases and functions (same for all bourne-compatible shells)
-[ -f ~/.aliases ] && . ~/.aliases
-[ -f ~/.functions ] && . ~/.functions
+# Source common shell configuration (applying to both zsh and bash)
+[ -f ~/.shell_common ] && . ~/.shell_common

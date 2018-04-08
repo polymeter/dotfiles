@@ -108,15 +108,6 @@ compinit
 # Disable completion of hostnames from /etc/hosts
 zstyle ':completion:*' hosts off
 
-# Set LS_COLORS
-if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
-    # On Linux, use the dircolors tool
-    eval $(dircolors ~/.dircolors)
-elif [ $(uname -s) = "FreeBSD" ]; then
-    # On FreeBSD, a different format is used
-    export LSCOLORS=ExGxFxdxCxDxDxxbxdAeAe
-fi
-
 # Enable fzf if available
 # Try all known possible install locations (packaging-dependent).
 fzf_paths=(
@@ -131,6 +122,5 @@ for cand_path in $fzf_paths; do
 done
 unset fzf_paths cand_path
 
-# Source custom aliases and functions (same for all bourne-compatible shells)
-[ -f ~/.aliases ] && . ~/.aliases
-[ -f ~/.functions ] && . ~/.functions
+# Source common shell configuration (applying to both zsh and bash)
+[ -f ~/.shell_common ] && . ~/.shell_common
