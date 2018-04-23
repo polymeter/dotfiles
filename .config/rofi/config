@@ -1,0 +1,21 @@
+rofi.modi:                           run,ssh
+
+! Style
+rofi.width:                          32
+rofi.lines:                          10
+rofi.font:                           mono 10
+rofi.padding:                        5
+rofi.theme:                          /usr/share/rofi/themes/solarized_alternate.rasi
+
+! SSH
+rofi.parse-hosts:                    false
+rofi.parse-known-hosts:              false
+
+! Disable mouse
+rofi.ml-row-left:
+rofi.ml-row-right:
+rofi.ml-row-up:
+rofi.ml-row-down:
+rofi.me-select-entry:
+rofi.me-accept-entry:
+rofi.me-accept-custom:
