@@ -9,4 +9,10 @@ fi
 
 [ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
+# Disable DPMS and screen saver
+if [ -x $(command -v xset) ]; then
+    xset -dpms
+    xset s off
+fi
+
 exec i3
