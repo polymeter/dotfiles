@@ -133,11 +133,11 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # associate workspaces to outputs
-workspace 1 output LVDS1
-workspace 2 output LVDS1
-workspace 3 output LVDS1
-workspace 4 output LVDS1
-workspace 10 output VGA1
+workspace $ws1 output LVDS1
+workspace $ws2 output LVDS1
+workspace $ws3 output LVDS1
+workspace $ws4 output LVDS1
+workspace $ws10 output VGA1
 
 # Application specific settings
 assign [class="^Chromium$" instance="^chromium$"] 3
