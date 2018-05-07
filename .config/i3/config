@@ -225,3 +225,6 @@ bar {
                 urgent_workspace    $red    $red    $base3
         }
 }
+
+# Set wallpaper with feh
+exec --no-startup-id feh --no-fehbg --randomize --bg-fill ~/.wallpapers
