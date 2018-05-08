@@ -43,7 +43,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+x exec rofi -show run
 
 # define command for screen locking
-set $lock_cmd exec i3lock -i ~/Misc/wallpaper.png
+set $lock_cmd exec i3lock -i ~/.wallpapers/$(ls ~/.wallpapers | shuf -n 1)
 
 # bind some "multimedia keys"
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
