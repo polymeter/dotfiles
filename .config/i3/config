@@ -42,11 +42,14 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher) instead of the default dmenu_run
 bindsym $mod+x exec rofi -show run
 
+# define command for screen locking
+set $lock_cmd exec i3lock -i ~/Misc/wallpaper.png
+
 # bind some "multimedia keys"
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86ScreenSaver exec i3lock -i ~/Misc/wallpaper.png
+bindsym XF86ScreenSaver $lock_cmd
 bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 
@@ -143,9 +146,10 @@ workspace $ws10 output VGA1
 assign [class="^Chromium$" instance="^chromium$"] 3
 
 # control mode (allows i3 reload/restart/quit and reboot/poweroff)
-set $ctlmode "Control: Re[l]oad, Re[s]tart, [Q]uit, [R]eboot, [P]oweroff"
+set $ctlmode "Control: [L]ock, Rel[o]ad, Re[s]tart, [Q]uit, [R]eboot, [P]oweroff"
 mode $ctlmode {
-    bindsym l reload; mode "default"
+    bindsym l $lock_cmd; mode "default"
+    bindsym o reload; mode "default"
     bindsym s restart
     bindsym q exit
     bindsym r exec systemctl reboot
