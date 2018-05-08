@@ -41,6 +41,7 @@ volume master {
 
 battery all {
         format = "B: %percentage %remaining %consumption"
+        format_down = ""
         last_full_capacity = true
         integer_battery_capacity = true
         low_threshold = 15
