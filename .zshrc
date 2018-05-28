@@ -68,6 +68,9 @@ bindkey "^R" history-incremental-search-backward
 bindkey -a "K" history-beginning-search-backward
 bindkey -a "J" history-beginning-search-forward
 
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
+
 # To avoid using raw escape sequences, some zsh versions (e.g. on Debian)
 # determine the correct value from terminfo and populate key[...].
 # These are used if available, otherwise falling back to the escape sequence.
