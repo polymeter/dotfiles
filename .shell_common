@@ -24,6 +24,12 @@ elif [ $(uname -s) = "FreeBSD" ]; then
     alias ls='ls -G'
 fi
 
+# Modern tool replacements, conditionally enabled
+if command -v exa &> /dev/null; then
+    alias l='exa -l'
+    alias la='exa -la'
+fi
+
 # Trigger terminal bell, e.g. for highlighting when long operations finish
 alias ding='tput bel'
 
