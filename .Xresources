@@ -63,3 +63,12 @@ URxvt.pointerBlank: true
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 URxvt.intensityStyles: false
+
+! XTerm settings
+XTerm.termName: xterm-256color
+XTerm.vt100.faceName: xft:Roboto Mono:pixelsize=13
+XTerm.vt100.bellIsUrgent: true
+XTerm.vt100.boldColors: false
+XTerm.vt100.translations: #override \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
