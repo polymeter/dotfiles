@@ -56,7 +56,7 @@ Xft.rgba: rgb
 
 ! urxvt settings
 URxvt.buffered: true
-URxvt.font: xft:Inconsolata-10
+URxvt.font: xft:Roboto Mono:pixelsize=13
 URxvt.perl-ext:
 URxvt.perl-ext-common:
 URxvt.pointerBlank: true
