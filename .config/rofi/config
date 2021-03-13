@@ -3,7 +3,7 @@ rofi.modi:                           run,ssh
 ! Style
 rofi.width:                          32
 rofi.lines:                          10
-rofi.font:                           mono 10
+rofi.font:                           Roboto Mono 10
 rofi.padding:                        5
 rofi.theme:                          /usr/share/rofi/themes/solarized_alternate.rasi
 
