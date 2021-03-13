@@ -117,12 +117,17 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# associate workspaces to outputs
-workspace $ws1 output LVDS1
-workspace $ws2 output LVDS1
-workspace $ws3 output LVDS1
-workspace $ws4 output LVDS1
-workspace $ws10 output VGA1
+# Custom mode to move workspaces between outputs
+set $omvmode "Move workspace to output"
+mode $omvmode {
+    bindsym h move workspace to output left
+    bindsym j move workspace to output down
+    bindsym k move workspace to output up
+    bindsym l move workspace to output right
+
+    bindsym Escape mode "default"
+}
+bindsym $mod+m mode $omvmode
 
 # Application specific settings
 assign [class="^Chromium$" instance="^chromium$"] 3
