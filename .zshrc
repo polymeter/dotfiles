@@ -127,3 +127,6 @@ unset fzf_paths cand_path
 
 # Source common shell configuration (applying to both zsh and bash)
 [ -f ~/.shell_common ] && . ~/.shell_common
+
+# Source machine-specific config additions (not in repo)
+[ -f ~/.zshrc_local ] && . ~/.zshrc_local
