@@ -59,6 +59,19 @@ function mkcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+# Fetch and checkout a pull request via git
+function gpr() {
+    if [ $# -eq 0 ]; then echo "Usage: gpr <PR_NUMBER> [REMOTE]"; return; fi
+
+    local remote
+    if [ $# -ge 2 ]; then
+        remote=$2
+    else
+        remote="origin"
+    fi
+    git fetch $remote refs/pull-requests/$1/from:PR$1 && git checkout PR$1
+}
+
 # }}}
 # Misc {{{
 
