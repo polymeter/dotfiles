@@ -4,5 +4,9 @@ if [ -d ~/bin ]; then
     path+=~/bin
 fi
 
+if [ -f /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Start X if logging in locally to tty1
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
