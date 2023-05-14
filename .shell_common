@@ -12,13 +12,13 @@ alias mkdir='mkdir -p'
 alias rm='rm -i'
 alias rmdir='rmdir -v'
 
-if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
+if [ $(uname -s) = "Linux" ]; then
     # GNU variant
     alias chmod='chmod -c'
     alias chown='chown -c'
     alias ls='ls --color=auto'
-elif [ $(uname -s) = "FreeBSD" ]; then
-    # Unix / BSD variant
+elif [ $(uname -s) = "Darwin" ] || [ $(uname -s) = "FreeBSD" ]; then
+    # Mac OS / BSD variant
     alias chmod='chmod -vv'
     alias chown='chown -vv'
     alias ls='ls -G'
@@ -76,10 +76,10 @@ function gpr() {
 # Misc {{{
 
 # Set LS_COLORS
-if [ $(uname -s) = "Linux" ] || [ $(uname -o) = 'Cygwin' ]; then
+if [ $(uname -s) = "Linux" ]; then
     # On Linux, use the dircolors tool
     eval $(dircolors ~/.dircolors)
-elif [ $(uname -s) = "FreeBSD" ]; then
+elif [ $(uname -s) = "Darwin" ] || [ $(uname -s) = "FreeBSD" ]; then
     # On FreeBSD, a different format is used
     export LSCOLORS=ExGxFxdxCxDxDxxbxdAeAe
 fi
