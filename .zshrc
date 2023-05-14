@@ -73,13 +73,14 @@ bindkey "^E" vi-end-of-line
 
 # To avoid using raw escape sequences, some zsh versions (e.g. on Debian)
 # determine the correct value from terminfo and populate key[...].
-# These are used if available, otherwise falling back to the escape sequence.
-if [ -z "$key" ]; then
-    typeset -A key
-    key=(Up "^[[A" Down "^[[B")
+# For some reason, this does not work on mac os.
+if [ $(uname -s) != "Darwin" ] && [ -n "$key" ]; then
+    bindkey "${key[Up]}" history-beginning-search-backward
+    bindkey "${key[Down]}" history-beginning-search-forward
+else
+    bindkey "^[[A" history-beginning-search-backward
+    bindkey "^[[B" history-beginning-search-forward
 fi
-bindkey "${key[Up]}" history-beginning-search-backward
-bindkey "${key[Down]}" history-beginning-search-forward
 
 # Support additional text objects (only supported by zsh >= 5.0.8)
 autoload -Uz is-at-least
