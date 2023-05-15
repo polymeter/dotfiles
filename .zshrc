@@ -116,6 +116,7 @@ zstyle ':completion:*' hosts off
 # Try all known possible install locations (packaging-dependent).
 fzf_paths=(
 /usr/share/fzf # Arch linux package
+/usr/share/doc/fzf/examples # Debian package
 /usr/local/share/examples/fzf/shell # FreeBSD pkg
 )
 for cand_path in $fzf_paths; do
