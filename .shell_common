@@ -26,8 +26,8 @@ fi
 
 # Modern tool replacements, conditionally enabled
 if command -v exa &> /dev/null; then
-    alias l='exa -l'
-    alias la='exa -la'
+    alias l='exa -lg'
+    alias la='exa -lga'
 fi
 
 # Trigger terminal bell, e.g. for highlighting when long operations finish
