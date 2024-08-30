@@ -25,7 +25,10 @@ elif [ $(uname -s) = "Darwin" ] || [ $(uname -s) = "FreeBSD" ]; then
 fi
 
 # Modern tool replacements, conditionally enabled
-if command -v exa &> /dev/null; then
+if command -v eza &> /dev/null; then
+    alias l='eza -lg'
+    alias la='eza -lga'
+elif command -v exa &> /dev/null; then
     alias l='exa -lg'
     alias la='exa -lga'
 fi
