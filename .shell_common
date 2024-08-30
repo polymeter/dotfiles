@@ -32,11 +32,10 @@ elif command -v exa &> /dev/null; then
     alias l='exa -lg'
     alias la='exa -lga'
 fi
-if command -v batcat &> /dev/null; then
-    alias bat=batcat
-fi
 if command -v bat &> /dev/null; then
     alias cat=bat
+elif command -v batcat &> /dev/null; then
+    alias bat=batcat
 fi
 
 # Trigger terminal bell, e.g. for highlighting when long operations finish
